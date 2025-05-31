@@ -60,9 +60,11 @@ const Register = () => {
                                 <input type="password" {...register("password", {
                                     required: true,
                                     minLength: 6,
+                                    pattern: /^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9]).{6,}$/
                                 })} name="password" className="input" placeholder="Password" />
-                                {errors.password && <span className="text-red-600">{errors.password.message}</span>}
-
+                                {errors.password?.type === 'required' && <span className="text-red-600">Password is required</span>}
+                                {errors.password?.type === 'minLength' && <span className="text-red-600">Password must be 6 characters</span>}
+                                {errors.password?.type === 'pattern' && <span className="text-red-600">Password must have one upper case, one lower case, one number, one special character</span>}
                                 <input className="btn btn-neutral mt-4" type="submit" value="Register" />
                             </fieldset>
                         </form>
