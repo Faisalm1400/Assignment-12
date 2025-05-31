@@ -1,0 +1,167 @@
+[
+  {
+    "_id": "6659a5b1831f1a001ef1a1c1",
+    "title": "AI Revolutionizes Newsrooms Worldwide",
+    "description": "News agencies are rapidly adopting AI technologies to automate tasks and improve accuracy in reporting.",
+    "publisher": "Global Times",
+    "tags": ["Technology", "AI", "Newsroom"],
+    "image": "https://i.ibb.co/KWxQqTX/news1.jpg",
+    "isPremium": true,
+    "status": "approved",
+    "views": 150
+  },
+  {
+    "_id": "6659a5b1831f1a001ef1a1c2",
+    "title": "Climate Crisis: What Scientists Are Warning",
+    "description": "The latest UN report emphasizes urgent action needed to combat climate change by 2030.",
+    "publisher": "Green Post",
+    "tags": ["Environment", "Climate", "Science"],
+    "image": "https://i.ibb.co/jM8ScmC/news2.jpg",
+    "isPremium": false,
+    "status": "approved",
+    "views": 240
+  },
+  {
+    "_id": "6659a5b1831f1a001ef1a1c3",
+    "title": "Startup Boom Continues in Asia",
+    "description": "Young entrepreneurs are dominating the Asian startup scene with fresh ideas and global vision.",
+    "publisher": "Biz Today",
+    "tags": ["Business", "Startup", "Asia"],
+    "image": "https://i.ibb.co/MsKRGPc/news3.jpg",
+    "isPremium": true,
+    "status": "approved",
+    "views": 120
+  },
+  {
+    "_id": "6659a5b1831f1a001ef1a1c4",
+    "title": "SpaceX Sets Record with New Satellite Launch",
+    "description": "SpaceX successfully launches 60 satellites, boosting global internet coverage.",
+    "publisher": "Orbit News",
+    "tags": ["Space", "Technology", "Elon Musk"],
+    "image": "https://i.ibb.co/MsKRGPc/news3.jpg",
+    "isPremium": false,
+    "status": "approved",
+    "views": 180
+  },
+  {
+    "_id": "6659a5b1831f1a001ef1a1c5",
+    "title": "Elections 2025: What Voters Need to Know",
+    "description": "Election campaigns are in full swing. Here's how to make an informed choice this year.",
+    "publisher": "The Citizen Voice",
+    "tags": ["Politics", "Election", "Democracy"],
+    "image": "https://i.ibb.co/tHRV5Lv/news5.jpg",
+    "isPremium": false,
+    "status": "approved",
+    "views": 75
+  },
+  {
+    "_id": "6659a5b1831f1a001ef1a1c6",
+    "title": "Mental Health Awareness Rises Among Youth",
+    "description": "Experts discuss the importance of mental well-being and how youth can seek help.",
+    "publisher": "Health Herald",
+    "tags": ["Health", "Mental Health", "Youth"],
+    "image": "https://i.ibb.co/hL2yYWh/news6.jpg",
+    "isPremium": false,
+    "status": "approved",
+    "views": 95
+  },
+  {
+    "_id": "6659a5b1831f1a001ef1a1c7",
+    "title": "How NFTs are Changing the Art Market",
+    "description": "Digital artists are making millions using NFTs. Here's what it means for the future of art.",
+    "publisher": "Crypto Digest",
+    "tags": ["Blockchain", "NFT", "Art"],
+    "image": "https://i.ibb.co/b3tJ4ZV/news7.jpg",
+    "isPremium": true,
+    "status": "approved",
+    "views": 205
+  },
+  {
+    "_id": "6659a5b1831f1a001ef1a1c8",
+    "title": "Global Tourism Rebounds After Pandemic",
+    "description": "With restrictions lifted, travelers are flocking to destinations like never before.",
+    "publisher": "Wander World",
+    "tags": ["Travel", "Tourism", "Post-Covid"],
+    "image": "https://i.ibb.co/v3jps8c/news8.jpg",
+    "isPremium": false,
+    "status": "approved",
+    "views": 310
+  },
+  {
+    "_id": "6659a5b1831f1a001ef1a1c9",
+    "title": "Electric Vehicles Now Outselling Gas Cars in Europe",
+    "description": "The EV revolution is real. Learn why more people are choosing electric over gas.",
+    "publisher": "Auto News",
+    "tags": ["Cars", "EV", "Europe"],
+    "image": "https://i.ibb.co/FbWqPt6/news9.jpg",
+    "isPremium": false,
+    "status": "approved",
+    "views": 165
+  },
+  {
+    "_id": "6659a5b1831f1a001ef1a1ca",
+    "title": "Remote Work Culture: Blessing or Curse?",
+    "description": "Companies debate the pros and cons of long-term remote work culture post-pandemic.",
+    "publisher": "WorkLife Today",
+    "tags": ["Work", "Remote", "Technology"],
+    "image": "https://i.ibb.co/qDn2y3q/news10.jpg",
+    "isPremium": true,
+    "status": "approved",
+    "views": 220
+  },
+  {
+    "_id": "6659a5b1831f1a001ef1a1cb",
+    "title": "Breakthrough in Quantum Computing Announced",
+    "description": "Scientists have achieved quantum supremacy with a processor that solves in seconds what classical computers take days.",
+    "publisher": "Quantum Times",
+    "tags": ["Quantum", "Technology", "Science"],
+    "image": "https://i.ibb.co/JBRGh3y/news11.jpg",
+    "isPremium": false,
+    "status": "approved",
+    "views": 125
+  },
+  {
+    "_id": "6659a5b1831f1a001ef1a1cc",
+    "title": "Digital Privacy at Risk in 2025",
+    "description": "Experts warn about increasing surveillance and data collection by apps and tech giants.",
+    "publisher": "CyberWatch",
+    "tags": ["Privacy", "Cybersecurity", "Surveillance"],
+    "image": "https://i.ibb.co/yYkpj0c/news12.jpg",
+    "isPremium": true,
+    "status": "approved",
+    "views": 135
+  },
+  {
+    "_id": "6659a5b1831f1a001ef1a1cd",
+    "title": "Olympics 2025: Top Athletes to Watch",
+    "description": "Here are the rising stars and seasoned athletes who are likely to dominate this year’s Olympic games.",
+    "publisher": "Sports Daily",
+    "tags": ["Sports", "Olympics", "Athletes"],
+    "image": "https://i.ibb.co/DKw5fzT/news13.jpg",
+    "isPremium": false,
+    "status": "approved",
+    "views": 90
+  },
+  {
+    "_id": "6659a5b1831f1a001ef1a1ce",
+    "title": "Is Mars Colonization Closer Than We Think?",
+    "description": "NASA and private companies gear up for human missions to Mars by 2030.",
+    "publisher": "Red Planet Reports",
+    "tags": ["Mars", "Space", "Exploration"],
+    "image": "https://i.ibb.co/7VHgcy4/news14.jpg",
+    "isPremium": true,
+    "status": "approved",
+    "views": 145
+  },
+  {
+    "_id": "6659a5b1831f1a001ef1a1cf",
+    "title": "Education Reform: What Schools Need in 2025",
+    "description": "New teaching methods and tech tools are transforming how students learn.",
+    "publisher": "EduPress",
+    "tags": ["Education", "Technology", "Policy"],
+    "image": "https://i.ibb.co/zs8zVM4/news15.jpg",
+    "isPremium": false,
+    "status": "approved",
+    "views": 200
+  }
+]

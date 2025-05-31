@@ -7,7 +7,7 @@ import { FcGoogle } from "react-icons/fc";
 
 
 const Login = () => {
-    const { signIn, setUser,googleSignIn } = useAuth();
+    const { signIn, setUser, googleSignIn } = useAuth();
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -19,20 +19,18 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
 
-        console.log(email, password);
+        // console.log(email, password);
 
         signIn(email, password)
             .then(result => {
                 const user = result.user;
                 console.log(user);
                 Swal.fire({
-                    title: 'User login successful.',
-                    showClass: {
-                        popup: 'animate_animated animate_fadeInDown'
-                    },
-                    hideClass: {
-                        popup: 'animate_animated animate_fadeOutUp'
-                    }
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'User logged in successfully',
+                    showConfirmButton: false,
+                    timer: 1500
                 });
                 navigate(from, { replace: true });
             })
@@ -45,15 +43,13 @@ const Login = () => {
                 // console.log(result.user);
                 setUser(result.user);
                 navigate(location?.state ? location.state : "/");
-              
+
                 Swal.fire({
-                    title: 'User login successful.',
-                    showClass: {
-                        popup: 'animate_animated animate_fadeInDown'
-                    },
-                    hideClass: {
-                        popup: 'animate_animated animate_fadeOutUp'
-                    }
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'User logged in successfully',
+                    showConfirmButton: false,
+                    timer: 1500
                 });
             })
     };
