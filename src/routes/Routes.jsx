@@ -8,6 +8,7 @@ import Register from "../pages/Auth/Register";
 import PrivateRoutes from "./PrivateRoutes";
 import AddArticle from "../pages/Articles/AddArticle";
 import AllArticles from "../pages/Articles/AllArticles";
+import ArticleDetails from "../pages/Articles/ArticleDetails";
 
 
 export const router = createBrowserRouter([
@@ -28,6 +29,13 @@ export const router = createBrowserRouter([
             {
                 path: "allArticles",
                 element: <AllArticles />
+            },
+            {
+                path: "article/:id",
+                element: <PrivateRoutes>
+                    <ArticleDetails />
+                </PrivateRoutes>,
+                loader: ({ params }) => fetch(`http://localhost:5000/articles/${params.id}`)
             },
             {
                 path: "/login",

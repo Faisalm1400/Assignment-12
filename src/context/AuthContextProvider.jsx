@@ -33,7 +33,7 @@ const AuthContextProvider = ({ children }) => {
         })
     }
 
-    const googleSignIn = ()=>{
+    const googleSignIn = () => {
         return signInWithPopup(auth, provider)
     }
 
@@ -42,9 +42,9 @@ const AuthContextProvider = ({ children }) => {
             setUser(currentUser);
             setLoading(false);
         });
-        return () => {
-            return unsubscribe();
-        }
+
+        return unsubscribe;
+
     }, [])
 
     const authInfo = {
