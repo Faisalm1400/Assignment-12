@@ -1,25 +1,21 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
 import { data, Link } from "react-router-dom";
 
 const AllArticles = () => {
 
     const [articles, setArticles] = useState([]);
-    // const [searchTerm, setSearchTerm] = useState("");
-    // const [selectedPublisher, setSelectedPublisher] = useState("");
-    // const [selectedTags, setSelectedTags] = useState([]);
-
-    fetch('http://localhost:5000/articles')
-        .then(res => res.json())
-        .then(data => {
-            setArticles(data)
-        })
+    const [searchTerm, setSearchTerm] = useState("");
+    const [selectedPublisher, setSelectedPublisher] = useState("");
+    const [selectedTags, setSelectedTags] = useState([]);
 
 
-    // useEffect(() => {
-    //     fetch(`articles.json`)
-    //         .then(res => res.json())
-    //         .then(data => setArticles(data));
-    // }, [searchTerm, selectedPublisher, selectedTags]);
+
+
+    useEffect(() => {
+        axios.get('http://localhost:5000/articles')
+            .then(res => setArticles(res.data))
+    }, [searchTerm, selectedPublisher, selectedTags]);
 
     return (
         <div className="max-w-7xl mx-auto px-4 py-8">
@@ -50,7 +46,7 @@ const AllArticles = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {articles.map(article => (
-                    <div key={article._id} className={`p-4 rounded-md shadow-md ${article.isPremium ? "bg-yellow-100 border border-yellow-400" : "bg-white"}`}>
+                    <div key={article._id} className={`p-4 rounded-md shadow-md bg-white text-black`}>
                         <img src={article.image} alt={article.title} className="w-full h-48 object-cover rounded-md" />
                         <h2 className="text-xl font-semibold mt-3">{article.title}</h2>
                         <p className="text-gray-600 mt-2">{article.description}</p>

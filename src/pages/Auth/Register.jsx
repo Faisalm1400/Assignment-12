@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContextProvider";
+import axios from "axios";
 
 const Register = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
@@ -23,6 +24,12 @@ const Register = () => {
                 updateUserProfile(data.name, data.photo)
                     .then(() => {
                         console.log("User profile updated!");
+                        const userInfo = {
+                            name: data.name,
+                            email: data.email,
+                            photo: data.photo,
+                        };
+                        axios.post("http://localhost:5000/users", userInfo);
                         reset();
                         Swal.fire({
                             position: 'top-end',
