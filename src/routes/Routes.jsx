@@ -10,6 +10,7 @@ import AddArticle from "../pages/Articles/AddArticle";
 import AllArticles from "../pages/Articles/AllArticles";
 import ArticleDetails from "../pages/Articles/ArticleDetails";
 import MyProfile from "../pages/Profile/MyProfile";
+import MyArticles from "../pages/Articles/MyArticles";
 
 
 export const router = createBrowserRouter([
@@ -42,6 +43,12 @@ export const router = createBrowserRouter([
                 path: "myProfile",
                 element: <PrivateRoutes>
                     <MyProfile />
+                </PrivateRoutes>
+            },
+            {
+                path: "myArticles",
+                element: <PrivateRoutes>
+                    <MyArticles />
                 </PrivateRoutes>
             },
             {

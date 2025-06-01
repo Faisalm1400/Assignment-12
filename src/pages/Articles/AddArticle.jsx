@@ -9,7 +9,6 @@ const AddArticle = () => {
     const { user } = useAuth();
     const { imageUrl, loading, handleUpload } = useImageUpload();
     const [title, setTitle] = useState("");
-    const [image, setImage] = useState("");
     const [publisher, setPublisher] = useState("");
     const [description, setDescription] = useState("");
     const [tags, setTags] = useState([]);
@@ -37,7 +36,17 @@ const AddArticle = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        await handleUpload(imageFile);
+        if (!imageFile) {
+            Swal.fire("Error", "Please upload an image!", "error");
+            return;
+        }
+
+        await handleUpload(imageFile); // ✅ Upload image first
+
+        if (!imageUrl) {
+            Swal.fire("Error", "Image upload failed!", "error");
+            return;
+        }
 
         const articleData = {
             title,
