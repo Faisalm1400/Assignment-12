@@ -4,10 +4,12 @@ import Swal from "sweetalert2";
 import loginLottieJSON from "../../assets/lottie/login.json"
 import useAuth from "../../hooks/useAuth";
 import { FcGoogle } from "react-icons/fc";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 
 const Login = () => {
     const { signIn, setUser, googleSignIn } = useAuth();
+    const axiosPublic = useAxiosPublic();
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -41,16 +43,25 @@ const Login = () => {
         googleSignIn()
             .then((result) => {
                 // console.log(result.user);
-                setUser(result.user);
-                navigate(location?.state ? location.state : "/");
+                const userInfo = {
+                    email: result.user?.email,
+                    name: result.user?.displayName,
+                    photo: result.user?.photoURL
+                }
 
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: 'User logged in successfully',
-                    showConfirmButton: false,
-                    timer: 1500
-                });
+                axiosPublic.post('/users', userInfo)
+                    .then(res => {
+                        setUser(res.user);
+                        navigate(location?.state ? location.state : "/");
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'User logged in successfully',
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                    })
+
             })
     };
 

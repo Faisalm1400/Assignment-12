@@ -6,8 +6,10 @@ import Swal from "sweetalert2";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContextProvider";
 import axios from "axios";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 const Register = () => {
+    const axiosPublic = useAxiosPublic();
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
     const { createUser, updateUserProfile } = useContext(AuthContext);
@@ -23,22 +25,27 @@ const Register = () => {
 
                 updateUserProfile(data.name, data.photo)
                     .then(() => {
-                        console.log("User profile updated!");
+                        // console.log("User profile updated!");
                         const userInfo = {
                             name: data.name,
                             email: data.email,
                             photo: data.photo,
                         };
-                        axios.post("http://localhost:5000/users", userInfo);
-                        reset();
-                        Swal.fire({
-                            position: 'top-end',
-                            icon: 'success',
-                            title: 'User created successfully',
-                            showConfirmButton: false,
-                            timer: 1500
-                        });
-                        navigate('/');
+                        axiosPublic.post("/users", userInfo)
+                            .then(res => {
+                                if (res.data.insertedId) {
+                                    reset();
+                                    Swal.fire({
+                                        position: 'top-end',
+                                        icon: 'success',
+                                        title: 'User created successfully',
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    });
+                                    navigate('/');
+                                }
+                            })
+
                     })
             })
     };

@@ -63,7 +63,7 @@ const MyArticles = () => {
                                 )}
                             </td>
                             <td className="border p-2">{article.isPremium ? "Yes" : "No"}</td>
-                            <td className="border p-2 space-x-3">
+                            <td className="border p-2 space-x-3 justify-center flex">
                                 <Link to={`/article/${article._id}`}>
                                     <button className="bg-blue-500 text-white px-2 py-1 rounded">Details</button>
                                 </Link>

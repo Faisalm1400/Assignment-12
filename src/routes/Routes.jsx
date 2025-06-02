@@ -11,6 +11,8 @@ import AllArticles from "../pages/Articles/AllArticles";
 import ArticleDetails from "../pages/Articles/ArticleDetails";
 import MyProfile from "../pages/Profile/MyProfile";
 import MyArticles from "../pages/Articles/MyArticles";
+import Dashboard from "../layouts/Dashboard";
+import AllUsers from "../pages/Dashboard/AllUsers";
 
 
 export const router = createBrowserRouter([
@@ -58,6 +60,18 @@ export const router = createBrowserRouter([
             {
                 path: "/register",
                 element: <Register />
+            }
+        ],
+    },
+    {
+        path: "dashboard",
+        element: <PrivateRoutes>
+            <Dashboard />
+        </PrivateRoutes>,
+        children: [
+            {
+                path: "users",
+                element: <AllUsers />
             }
         ],
     },

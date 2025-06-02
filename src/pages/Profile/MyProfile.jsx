@@ -5,19 +5,20 @@ import Swal from "sweetalert2";
 
 const MyProfile = () => {
     const { user, updateUserProfile } = useAuth()
-    const [name, setName] = useState(user?.displayName || "");
     const [email, setEmail] = useState(user.email);
+    const [name, setName] = useState(user?.displayName);
     const [photo, setPhoto] = useState(user?.photoURL || "");
     const [dbUser, setDbUser] = useState(null);
     useEffect(() => {
         if (user?.email) {
-            axios.get(`http://localhost:5000/users?email=${user.email}`)
+            axios.get(`http://localhost:5000/myProfile?email=${user.email}`)
                 .then(res => {
                     if (res.data) {
+                        console.log(res.data)
                         setDbUser(res.data);
-                        setName(res.data.name);
-                        setPhoto(res.data.photo);
-                        // console.log(res.data)
+                        setName(res.data.name ?? user.displayName ?? "");
+                        setPhoto(res.data.photo ?? user.photoURL ?? "");
+                        // setEmail(res.data.email);
                     } else {
                         console.error("User not found");
                     }
