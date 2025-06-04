@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Select from "react-select";
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
@@ -9,10 +9,18 @@ const AddArticle = () => {
     const { user } = useAuth();
     const { imageUrl, loading, handleUpload } = useImageUpload();
     const [title, setTitle] = useState("");
-    const [publisher, setPublisher] = useState("");
+    const [publishers, setPublishers] = useState([]);
+    const [selectedPublisher, setSelectedPublisher] = useState(null);
     const [description, setDescription] = useState("");
     const [tags, setTags] = useState([]);
     const [imageFile, setImageFile] = useState(null);
+
+
+    useEffect(() => {
+        axios.get("http://localhost:5000/publishers")
+            .then(res => setPublishers(res.data))
+            .catch(error => console.error("Error fetching publishers:", error));
+    }, []);
 
     const tagOptions = [
         { value: "Technology", label: "Technology" },
@@ -37,25 +45,39 @@ const AddArticle = () => {
         e.preventDefault();
 
         if (!imageFile) {
-            Swal.fire("Error", "Please upload an image!", "error");
+            Swal.fire({
+                position: 'top-end',
+                icon: 'error',
+                title: 'Please upload an image!',
+                showConfirmButton: false,
+                timer: 1500
+            });
             return;
         }
 
         await handleUpload(imageFile);
 
         if (!imageUrl) {
-            Swal.fire("Error", "Image upload failed!", "error");
+            Swal.fire({
+                position: 'top-end',
+                icon: 'error',
+                title: 'Image upload failed!',
+                showConfirmButton: false,
+                timer: 1500
+            });
             return;
         }
 
         const articleData = {
             title,
-            publisher,
+            publisher: selectedPublisher.label,
             tags: tags.map(tag => tag.value),
             description,
             image: imageUrl,
             status: "pending",
             email: user.email,
+            authorName: user.displayName,
+            authorPhoto: user.photoURL
         };
 
         console.log("Submitting article:", articleData);
@@ -85,7 +107,14 @@ const AddArticle = () => {
                     {imageUrl && <img src={imageUrl} alt="Uploaded Preview" width="100" />}
 
                     <label className="label">Publisher</label>
-                    <input type="text" className="input" name="publisher" value={publisher} onChange={(e) => setPublisher(e.target.value)} placeholder="Publisher" required />
+                    <Select
+                        value={selectedPublisher}
+                        name="publisher"
+                        options={publishers.map(pub => ({ value: pub._id, label: pub.name }))}
+                        onChange={setSelectedPublisher}
+                        className="basic-single text-black"
+                        classNamePrefix="select"
+                    />
 
                     <label className="label">Tags</label>
                     <Select
@@ -94,7 +123,7 @@ const AddArticle = () => {
                         name="tags"
                         options={tagOptions}
                         onChange={setTags}
-                        className="basic-multi-select"
+                        className="basic-multi-select text-black"
                         classNamePrefix="select"
                     />
 
