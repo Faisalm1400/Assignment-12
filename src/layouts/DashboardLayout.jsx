@@ -2,8 +2,7 @@ import { Outlet } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import useAdmin from "../hooks/useAdmin";
 
-const Dashboard = () => {
-
+const DashboardLayout = () => {
     // TODO: get isAdmin value from the database
     const [isAdmin] = useAdmin();
     return (
@@ -18,4 +17,4 @@ const Dashboard = () => {
     );
 };
 
-export default Dashboard;
+export default DashboardLayout;

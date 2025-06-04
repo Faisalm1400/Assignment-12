@@ -11,8 +11,11 @@ import AllArticles from "../pages/Articles/AllArticles";
 import ArticleDetails from "../pages/Articles/ArticleDetails";
 import MyProfile from "../pages/Profile/MyProfile";
 import MyArticles from "../pages/Articles/MyArticles";
-import Dashboard from "../layouts/Dashboard";
+import Dashboard from "../pages/Dashboard/Dashboard";
 import AllUsers from "../pages/Dashboard/AllUsers";
+import DashboardLayout from "../layouts/DashboardLayout";
+import AddPublisher from "../pages/Dashboard/AddPublisher";
+import AdminRoute from "./AdminRoute";
 
 
 export const router = createBrowserRouter([
@@ -65,13 +68,21 @@ export const router = createBrowserRouter([
     },
     {
         path: "dashboard",
-        element: <PrivateRoutes>
-            <Dashboard />
-        </PrivateRoutes>,
+        element: <AdminRoute>
+            <DashboardLayout />
+        </AdminRoute>,
         children: [
+            {
+                path: "adminHome",
+                element: <Dashboard />
+            },
             {
                 path: "users",
                 element: <AllUsers />
+            },
+            {
+                path: "publishers",
+                element: <AddPublisher />
             }
         ],
     },

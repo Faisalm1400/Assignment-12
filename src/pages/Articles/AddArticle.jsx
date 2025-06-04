@@ -29,7 +29,7 @@ const AddArticle = () => {
 
 
     const handleImageChange = (e) => {
-        setImageFile(e.target.files[0]); // Store the selected image file
+        setImageFile(e.target.files[0]);
     };
 
 
@@ -41,7 +41,7 @@ const AddArticle = () => {
             return;
         }
 
-        await handleUpload(imageFile); // ✅ Upload image first
+        await handleUpload(imageFile);
 
         if (!imageUrl) {
             Swal.fire("Error", "Image upload failed!", "error");
@@ -61,7 +61,7 @@ const AddArticle = () => {
         console.log("Submitting article:", articleData);
 
         axios.post("http://localhost:5000/articles", articleData)
-            .then((responce) => {
+            .then(() => {
                 Swal.fire({
                     position: 'top-end',
                     icon: 'success',
