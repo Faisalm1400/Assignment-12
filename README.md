@@ -1,12 +1,25 @@
-# React + Vite
+# 📰 **NewsWave**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🌐 **Live Site URL**
+# https://newspaper-260ae.web.app/
+# https://newspaper-260ae.firebaseapp.com/
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🔑 **Admin Credentials**
+- **Username:** `elon@musk.com`
+- **Password:** `Elon@143`
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## **Features**
+Here are **10 key features** of our website:
+
+**Trending Articles** – Top news automatically ranked based on views 📈  
+**Dynamic Publishers Section** – Displays all publishers added by the admin 🏢  
+**Article Search & Filters** – Find articles by title, publisher, or tags 🔍  
+**Premium Articles Access** – Exclusive content for premium users 💎  
+**User Authentication** – Secure login & registration with JWT 🔑  
+**Admin Dashboard** – Manage articles, users, and publishers efficiently ⚙️  
+**Subscription Plans** – Compare free vs premium features and subscribe 📜  
+**Statistics Page** – Live user analytics powered by React CountUp 📊  
+**Responsive UI** – Optimized for mobile and desktop devices 💻📱  
+**404 Error Page** – Friendly page handling broken links 🚨  
