@@ -19,6 +19,7 @@ import AdminRoute from "./AdminRoute";
 import AdminAllArticles from "../pages/Dashboard/AdminAllArticles";
 import SubscriptionPage from "../pages/Subscription/SubscriptionPage";
 import PremiumArticles from "../pages/Subscription/PremiumArticles";
+import ErrorPage from "../pages/Error/ErrorPage";
 
 
 export const router = createBrowserRouter([
