@@ -17,8 +17,8 @@ const Navbar = () => {
         <li><Link to={'/allArticles'}>All Articles</Link></li>
         <li><Link to={'/myArticles'}>My Articles</Link></li>
         <li><Link to={'/subscription'}>Subscription</Link></li>
+        <li><Link to={'/premiumArticles'}>Premium Articles</Link></li>
         <li><Link to="/dashboard/adminHome">Dashboard</Link></li>
-        <li><Link to={'/'}>Premium Articles</Link></li>
     </>
 
     return (
