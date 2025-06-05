@@ -16,13 +16,13 @@ const AllArticles = () => {
 
 
     useEffect(() => {
-        axios.get("http://localhost:5000/publishers")
+        axios.get("https://newspaper-server-rose.vercel.app/publishers")
             .then(res => setPublishers(res.data))
             .catch(error => console.error("Error fetching publishers:", error));
     }, []);
 
     useEffect(() => {
-        axios.get('http://localhost:5000/articles', {
+        axios.get('https://newspaper-server-rose.vercel.app/articles', {
             params: {
                 search: searchTerm,
                 publisher: selectedPublisher,
@@ -31,7 +31,7 @@ const AllArticles = () => {
             .then(res => setArticles(res.data))
 
         if (user) {
-            axios.get(`http://localhost:5000/users/premium-status/${user.email}`)
+            axios.get(`https://newspaper-server-rose.vercel.app/users/premium-status/${user.email}`)
                 .then(res => setIsPremium(res.data.isPremium))
                 .catch(error => console.error("Error checking premium status:", error));
         }

@@ -17,7 +17,7 @@ const AddArticle = () => {
 
 
     useEffect(() => {
-        axios.get("http://localhost:5000/publishers")
+        axios.get("https://newspaper-server-rose.vercel.app/publishers")
             .then(res => setPublishers(res.data))
             .catch(error => console.error("Error fetching publishers:", error));
     }, []);
@@ -80,9 +80,9 @@ const AddArticle = () => {
             authorPhoto: user.photoURL
         };
 
-        console.log("Submitting article:", articleData);
+        // console.log("Submitting article:", articleData);
 
-        axios.post("http://localhost:5000/articles", articleData)
+        axios.post("https://newspaper-server-rose.vercel.app/articles", articleData)
             .then(() => {
                 Swal.fire({
                     position: 'top-end',
@@ -95,18 +95,18 @@ const AddArticle = () => {
     }
 
     return (
-        <div className="card bg-base-100 w-full max-w-sm shadow-2xl">
+        <div className="card w-full max-w-sm shadow-2xl mx-auto bg-amber-200">
             <div className="card-body">
-                <form onSubmit={handleSubmit}>
-                    <label className="label">Title</label>
+                <form onSubmit={handleSubmit} className="space-y-3">
+                    <label className="label text-black font-bold">Title</label>
                     <input type="text" className="input" name="title" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Title" required />
 
-                    <label className="label">Upload Image</label>
+                    <label className="label text-black font-bold">Upload Image</label>
                     <input type="file" className="input" onChange={handleImageChange} required />
                     {loading && <p>Uploading...</p>}
                     {imageUrl && <img src={imageUrl} alt="Uploaded Preview" width="100" />}
 
-                    <label className="label">Publisher</label>
+                    <label className="label text-black font-bold">Publisher</label>
                     <Select
                         value={selectedPublisher}
                         name="publisher"
@@ -116,7 +116,7 @@ const AddArticle = () => {
                         classNamePrefix="select"
                     />
 
-                    <label className="label">Tags</label>
+                    <label className="label text-black font-bold">Tags</label>
                     <Select
                         value={tags}
                         isMulti
@@ -127,7 +127,7 @@ const AddArticle = () => {
                         classNamePrefix="select"
                     />
 
-                    <label className="label">Description</label>
+                    <label className="label text-black font-bold">Description</label>
                     <textarea className="input" name="description" value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Description" required />
 
                     <button type="submit" className="btn btn-neutral mt-4">Submit</button>

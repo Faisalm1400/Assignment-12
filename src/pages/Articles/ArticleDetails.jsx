@@ -8,7 +8,7 @@ const ArticleDetails = () => {
     // console.log(_id)
 
     // useEffect(() => {
-    //     fetch(`http://localhost:5000/articles/${id}`)
+    //     fetch(`https://newspaper-server-rose.vercel.app/articles/${id}`)
     //         .then(res => res.json())
     //         .then(data => {
     //             console.log(data)

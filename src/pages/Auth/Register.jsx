@@ -21,7 +21,7 @@ const Register = () => {
         createUser(data.email, data.password)
             .then(result => {
                 const loggedUser = result.user;
-                console.log("Logged User:", loggedUser);
+                // console.log("Logged User:", loggedUser);
 
                 updateUserProfile(data.name, data.photo)
                     .then(() => {

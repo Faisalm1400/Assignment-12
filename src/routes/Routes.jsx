@@ -25,6 +25,7 @@ export const router = createBrowserRouter([
     {
         path: "/",
         element: <MainLayout />,
+        errorElement: <ErrorPage />,
         children: [
             {
                 path: "/",
@@ -45,7 +46,7 @@ export const router = createBrowserRouter([
                 element: <PrivateRoutes>
                     <ArticleDetails />
                 </PrivateRoutes>,
-                loader: ({ params }) => fetch(`http://localhost:5000/articles/${params.id}`)
+                loader: ({ params }) => fetch(`https://newspaper-server-rose.vercel.app/articles/${params.id}`)
             },
             {
                 path: "myProfile",

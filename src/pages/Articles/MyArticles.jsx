@@ -20,7 +20,7 @@ const MyArticles = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`http://localhost:5000/articles/${id}`)
+                axios.delete(`https://newspaper-server-rose.vercel.app/articles/${id}`)
                     .then(() => {
                         Swal.fire("Deleted!", "Your article has been deleted.", "success");
                         setArticles(articles.filter(article => article._id !== id));
@@ -31,7 +31,7 @@ const MyArticles = () => {
 
     useEffect(() => {
         if (user?.email) {
-            axios.get(`http://localhost:5000/myArticles?email=${user.email}`)
+            axios.get(`https://newspaper-server-rose.vercel.app/myArticles?email=${user.email}`)
                 .then(res => setArticles(res.data))
         }
     }, [user?.email]);

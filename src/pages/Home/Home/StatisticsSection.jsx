@@ -7,7 +7,7 @@ const StatisticsSection = () => {
 
     
     useEffect(() => {
-        axios.get("http://localhost:5000/stats")
+        axios.get("https://newspaper-server-rose.vercel.app/stats")
             .then(res => setStats(res.data))
     }, []);
     return (

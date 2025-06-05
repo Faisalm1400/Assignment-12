@@ -11,10 +11,10 @@ const MyProfile = () => {
     const [dbUser, setDbUser] = useState(null);
     useEffect(() => {
         if (user?.email) {
-            axios.get(`http://localhost:5000/myProfile?email=${user.email}`)
+            axios.get(`https://newspaper-server-rose.vercel.app/myProfile?email=${user.email}`)
                 .then(res => {
                     if (res.data) {
-                        console.log(res.data)
+                        // console.log(res.data)
                         setDbUser(res.data);
                         setName(res.data.name ?? user.displayName ?? "");
                         setPhoto(res.data.photo ?? user.photoURL ?? "");
@@ -34,7 +34,7 @@ const MyProfile = () => {
         await updateUserProfile(name, photo);
 
         const updatedUserData = { email: user.email, name, photo };
-        await axios.patch("http://localhost:5000/users", updatedUserData);
+        await axios.patch("https://newspaper-server-rose.vercel.app/users", updatedUserData);
 
         Swal.fire("Success!", "Profile updated successfully!", "success");
 

@@ -6,7 +6,7 @@ const PublishersSection = () => {
 
 
     useEffect(() => {
-        axios.get("http://localhost:5000/publishers")
+        axios.get("https://newspaper-server-rose.vercel.app/publishers")
             .then(res => setPublishers(res.data))
     }, []);
     return (

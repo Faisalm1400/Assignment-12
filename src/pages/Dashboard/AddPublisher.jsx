@@ -42,7 +42,7 @@ const AddPublisher = () => {
         <div className="max-w-md mx-auto p-6 bg-amber-200 shadow-md rounded-md text-black">
             <h2 className="text-2xl font-bold mb-4">Add Publisher</h2>
             <form onSubmit={handleSubmit}>
-                <label className="label">Publisher Name</label>
+                <label className="label text-black font-bold">Publisher Name</label>
                 <input
                     type="text"
                     className="input w-full text-white"
@@ -52,7 +52,7 @@ const AddPublisher = () => {
                     required
                 />
 
-                <label className="label">Publisher Logo</label>
+                <label className="label text-black font-bold">Publisher Logo</label>
                 <input
                     type="file"
                     accept="image/*"

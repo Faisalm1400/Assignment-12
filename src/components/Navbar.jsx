@@ -7,7 +7,7 @@ const Navbar = () => {
     const handleLogOut = () => {
         logOut()
             .then(() => {
-                console.log('User logged out')
+                // console.log('User logged out')
             })
     }
 
@@ -34,7 +34,7 @@ const Navbar = () => {
                         {links}
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl">News24</a>
+                <a className="btn btn-ghost text-xl">NewsWave</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
