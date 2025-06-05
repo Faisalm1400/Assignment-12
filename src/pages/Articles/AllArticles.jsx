@@ -11,12 +11,23 @@ const AllArticles = () => {
     const [selectedPublisher, setSelectedPublisher] = useState("");
     const [selectedTags, setSelectedTags] = useState([]);
     const [isPremium, setIsPremium] = useState(false);
-
+    const [publishers, setPublishers] = useState([]);
 
 
 
     useEffect(() => {
-        axios.get('http://localhost:5000/articles')
+        axios.get("http://localhost:5000/publishers")
+            .then(res => setPublishers(res.data))
+            .catch(error => console.error("Error fetching publishers:", error));
+    }, []);
+
+    useEffect(() => {
+        axios.get('http://localhost:5000/articles', {
+            params: {
+                search: searchTerm,
+                publisher: selectedPublisher,
+            }
+        })
             .then(res => setArticles(res.data))
 
         if (user) {
@@ -38,18 +49,18 @@ const AllArticles = () => {
                 />
                 <select
                     onChange={e => setSelectedPublisher(e.target.value)}
-                    className="border p-2 rounded-md w-full md:w-auto"
+                    className="border p-2 rounded-md w-full md:w-auto text-black bg-gray-200"
                 >
                     <option value="">All Publishers</option>
-                    {/* Populate publishers dynamically */}
+                    {publishers.map(pub => (
+                        <option key={pub._id} value={pub.name}>{pub.name}</option>
+                    ))}
                 </select>
                 <select
                     multiple
-                    onChange={e => setSelectedTags([...e.target.selectedOptions].map(o => o.value))}
                     className="border p-2 rounded-md w-full md:w-auto"
                 >
                     <option value="">All Tags</option>
-                    {/* Populate tags dynamically */}
                 </select>
             </div>
 

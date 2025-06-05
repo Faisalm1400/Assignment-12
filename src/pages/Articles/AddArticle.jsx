@@ -102,7 +102,7 @@ const AddArticle = () => {
                     <input type="text" className="input" name="title" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Title" required />
 
                     <label className="label">Upload Image</label>
-                    <input type="file" accept="image/*" className="input" onChange={handleImageChange} required />
+                    <input type="file" className="input" onChange={handleImageChange} required />
                     {loading && <p>Uploading...</p>}
                     {imageUrl && <img src={imageUrl} alt="Uploaded Preview" width="100" />}
 

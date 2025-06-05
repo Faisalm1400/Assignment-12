@@ -3,7 +3,7 @@ import { useLoaderData } from "react-router-dom";
 const ArticleDetails = () => {
     // const [article, setArticle] = useState([]);
 
-    const { _id, title, description, publisher, tags, image, status, views } = useLoaderData();
+    const { _id, title, description, publisher, tags, image, views } = useLoaderData();
 
     // console.log(_id)
 
