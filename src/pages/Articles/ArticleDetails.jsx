@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 
 const ArticleDetails = () => {
@@ -6,7 +5,7 @@ const ArticleDetails = () => {
 
     const { _id, title, description, publisher, tags, image, status, views } = useLoaderData();
 
-    console.log(_id)
+    // console.log(_id)
 
     // useEffect(() => {
     //     fetch(`http://localhost:5000/articles/${id}`)

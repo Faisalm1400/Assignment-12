@@ -38,7 +38,7 @@ const MyArticles = () => {
     return (
         <div className="max-w-7xl mx-auto px-4 py-8">
             <h1 className="text-3xl font-bold mb-6 text-center">My Articles</h1>
-            <table className="table-auto w-full border-collapse border border-gray-300">
+            <table className="table-auto w-full border-collapse border border-gray-300 text-center">
                 <thead>
                     <tr>
                         <th className="border p-2">#</th>
@@ -57,7 +57,7 @@ const MyArticles = () => {
                                 {article.status}
                                 {article.status === "declined" && (
                                     <button className="ml-2 bg-red-500 text-white px-2 py-1 rounded"
-                                        onClick={() => alert(`Reason: ${article.declineReason}`)}>
+                                        onClick={() => Swal.fire(`Reason: ${article.declineReason}`)}>
                                         View Reason
                                     </button>
                                 )}

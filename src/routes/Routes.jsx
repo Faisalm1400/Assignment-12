@@ -17,6 +17,7 @@ import DashboardLayout from "../layouts/DashboardLayout";
 import AddPublisher from "../pages/Dashboard/AddPublisher";
 import AdminRoute from "./AdminRoute";
 import AdminAllArticles from "../pages/Dashboard/AdminAllArticles";
+import SubscriptionPage from "../pages/Subscription/SubscriptionPage";
 
 
 export const router = createBrowserRouter([
@@ -56,6 +57,10 @@ export const router = createBrowserRouter([
                 element: <PrivateRoutes>
                     <MyArticles />
                 </PrivateRoutes>
+            },
+            {
+                path: "subscription",
+                element: <SubscriptionPage />
             },
             {
                 path: "/login",

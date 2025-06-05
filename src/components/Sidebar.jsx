@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
-    const links = <>
+    const adminLinks = <>
         <li>
             <NavLink
                 to="/dashboard/adminHome"
@@ -41,12 +41,31 @@ const Sidebar = () => {
             </NavLink>
         </li>
     </>
+
+    const userLinks = <>
+        <li>
+            <NavLink
+                to="/"
+                className={({ isActive }) =>
+                    `block py-2 px-4 rounded ${isActive ? "bg-blue-500 text-white font-bold" : "hover:bg-gray-700"}`
+                }
+            >
+                Home
+            </NavLink>
+        </li>
+    </>
     return (
-        <div className="w-64 h-screen bg-gray-800 text-white p-4 fixed">
+        <div className="w-64 h-screen bg-gray-800 text-white p-4 fixed space-y-6">
             <h2 className="text-xl font-bold mb-6">Admin Dashboard</h2>
             <nav>
-                <ul className="space-y-4">
-                    {links}
+                <ul className="space-y-5">
+                    {adminLinks}
+                </ul>
+            </nav>
+            <hr />
+            <nav>
+                <ul className="space-y-5">
+{userLinks}
                 </ul>
             </nav>
         </div>

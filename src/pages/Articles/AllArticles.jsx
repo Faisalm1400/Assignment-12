@@ -1,13 +1,16 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { data, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 
 const AllArticles = () => {
 
+    const { user } = useAuth();
     const [articles, setArticles] = useState([]);
     const [searchTerm, setSearchTerm] = useState("");
     const [selectedPublisher, setSelectedPublisher] = useState("");
     const [selectedTags, setSelectedTags] = useState([]);
+    const [isPremium, setIsPremium] = useState(false);
 
 
 
@@ -15,7 +18,13 @@ const AllArticles = () => {
     useEffect(() => {
         axios.get('http://localhost:5000/articles')
             .then(res => setArticles(res.data))
-    }, [searchTerm, selectedPublisher, selectedTags]);
+
+        if (user) {
+            axios.get(`http://localhost:5000/users/premium-status/${user.email}`)
+                .then(res => setIsPremium(res.data.isPremium))
+                .catch(error => console.error("Error checking premium status:", error));
+        }
+    }, [searchTerm, selectedPublisher, selectedTags, user]);
 
     return (
         <div className="max-w-7xl mx-auto px-4 py-8">
@@ -55,8 +64,9 @@ const AllArticles = () => {
                             <p className="text-sm text-gray-500 mt-1">Published by: {article.publisher}</p>
                             <Link to={`/article/${article._id}`}>
                                 <button
-                                    className={`mt-4 px-4 py-2 rounded-md font-medium ${article.isPremium && !article.hasSubscription ? "bg-gray-400 cursor-not-allowed" : "bg-blue-500 text-white hover:bg-blue-600"}`}
-                                    disabled={article.isPremium && !article.hasSubscription}
+                                    className={`mt-4 px-4 py-2 rounded-md font-medium ${article.isPremium && !isPremium ? "bg-gray-400 cursor-not-allowed" : "bg-blue-500 text-white hover:bg-blue-600"
+                                        }`}
+                                    disabled={article.isPremium && !isPremium}
                                 >
                                     Details
                                 </button>
