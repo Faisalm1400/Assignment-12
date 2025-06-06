@@ -67,32 +67,35 @@ const Login = () => {
 
 
     return (
-        <div className="hero bg-base-200 min-h-screen">
-            <div className="hero-content flex-col lg:flex-row-reverse">
-                <div className="text-center lg:text-left w-2xl">
-                    <Lottie animationData={loginLottieJSON} />
-                </div>
-                <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-                    <div className="card-body">
-                        <form onSubmit={handleLogin}>
-                            <fieldset className="fieldset">
-                                <h1 className="text-2xl font-bold mx-auto my-2">Login now!</h1>
-                                <label className="label">Email</label>
-                                <input type="email" className="input" placeholder="Email" name='email' />
-                                <label className="label">Password</label>
-                                <input type="password" className="input" placeholder="Password" name='password' />
-                                <button className="btn btn-neutral mt-4">Log In</button>
-                            </fieldset>
-                        </form>
-                        <p><small>New here? <Link to={'/register'}>Create an account</Link></small></p>
-                        <div className="form-control">
-                            <button onClick={handleGoogleSignInClick} className="btn w-full rounded-md text-black bg-amber-100"><FcGoogle />Login with Google
-                            </button>
-                        </div>
+        <div className="hero bg-base-200 min-h-screen flex flex-col lg:flex-row items-center justify-center px-4">
+            <div className="text-center lg:w-1/2 mb-6 lg:mb-0">
+                <Lottie animationData={loginLottieJSON} className="max-w-sm mx-auto" />
+            </div>
+
+            <div className="card bg-base-100 w-full max-w-sm shadow-2xl">
+                <div className="card-body">
+                    <form onSubmit={handleLogin}>
+                        <fieldset className="fieldset">
+                            <h1 className="text-2xl font-bold text-center">Login now!</h1>
+                            <label className="label">Email</label>
+                            <input type="email" className="input w-full" placeholder="Email" name='email' required />
+                            <label className="label">Password</label>
+                            <input type="password" className="input w-full" placeholder="Password" name='password' required />
+                            <button className="btn btn-neutral w-full mt-4">Log In</button>
+                        </fieldset>
+                    </form>
+                    <p className="text-center mt-2">
+                        <small>New here? <Link to={'/register'} className="text-blue-500">Create an account</Link></small>
+                    </p>
+                    <div className="form-control mt-4">
+                        <button onClick={handleGoogleSignInClick} className="btn w-full rounded-md text-black bg-amber-100 flex items-center justify-center">
+                            <FcGoogle className="mr-2" /> Login with Google
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
+
     );
 };
 
